@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Simple chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Experimento de Chat</title>
   <link rel="stylesheet" href="assets/css.css">
 </head>
 <body>
 
 <div class="nickname_container" id="nick">
 
-  <span>Type your nickname:</span>
+  <span>Digite o seu apelido:</span>
   <form id="submit"><input type="text" id="nickname" /></form>
 
 </div>
@@ -17,7 +18,7 @@
 <div id="chat" hidden>
 
   <div class="menu">
-      <div class="name" id="name">Alex</div>
+      <div class="name" id="name">Anderson</div>
       <div class="last" id="time">18:09</div>
   </div>
 
@@ -25,10 +26,10 @@
       
   </ol>
   <div id='bottom'></div>
-  <input class="textarea" type="text" placeholder="Type here!" id="textarea" />
+  <input class="textarea" type="text" placeholder="Digite aqui!" id="textarea" />
 </div>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/socket.io-client/socket.io.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/socket.io.js"></script>
     <script src="assets/js.js"></script>
 </body>
 </html>

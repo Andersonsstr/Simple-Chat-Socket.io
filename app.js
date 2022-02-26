@@ -1,19 +1,22 @@
-var app = require('express')();
+const express = require('express');
+const app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var clients = {}; 
 
-app.get('/', function(req, res){
-  res.send('server is running');
-});
+app.use(express.static('public'))
+
+app.get('/', (req, res) => {
+	res.render('index')
+})
 
 io.on("connection", function (client) {  
     client.on("join", function(name){
     	console.log("Joined: " + name);
         clients[client.id] = name;
-        client.emit("update", "You have connected to the server.");
-        client.broadcast.emit("update", name + " has joined the server.")
+        client.emit("update", "Você se conectou ao servidor!");
+        client.broadcast.emit("Informativo:", name + " entrou na sala.")
     });
 
     client.on("send", function(msg){
@@ -23,12 +26,12 @@ io.on("connection", function (client) {
 
     client.on("disconnect", function(){
     	console.log("Disconnect");
-        io.emit("update", clients[client.id] + " has left the server.");
+        io.emit("Informativo:", clients[client.id] + " saiu da sala.");
         delete clients[client.id];
     });
 });
 
 
 http.listen(3000, function(){
-  console.log('listening on port 3000');
+  console.log('Ouvindo na porta 3000');
 });

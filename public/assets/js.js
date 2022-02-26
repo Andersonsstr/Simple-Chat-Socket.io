@@ -2,19 +2,19 @@ $(document).ready(function(){
     var socket = io.connect("http://localhost:3000");
     var ready = false;
 
-    $("#submit").submit(function(e) {
-		e.preventDefault();
-		$("#nick").fadeOut();
-		$("#chat").fadeIn();
-		var name = $("#nickname").val();
-		var time = new Date();
-		$("#name").html(name);
-		$("#time").html('First login: ' + time.getHours() + ':' + time.getMinutes());
+    $("#submit").submit(function (e) {
+			e.preventDefault();
+			$("#nick").fadeOut();
+			$("#chat").fadeIn();
+			var name = $("#nickname").val();
+			var time = new Date();
+			$("#name").html(name);
+			$("#time").html('Primeiro login: ' + time.getHours() + ':' + time.getMinutes());
 
-		ready = true;
-		socket.emit("join", name);
+			ready = true;
+			socket.emit("join", name);
 
-	});
+		});
 
 	$("#textarea").keypress(function(e){
         if(e.which == 13) {
@@ -32,7 +32,7 @@ $(document).ready(function(){
 
     socket.on("update", function(msg) {
     	if (ready) {
-    		$('.chat').append('<li class="info">' + msg + '</li>')
+    		$('.chat').append('<li class="info" style="margin-top: -10px;">' + msg + '</li>')
     	}
     }); 
 
@@ -43,9 +43,5 @@ $(document).ready(function(){
 				
     	}
     });
-
-
-
-
 });
 
