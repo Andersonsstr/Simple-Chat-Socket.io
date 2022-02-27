@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app"
   },
-  "author": "Anderson Silva <andersonsstr@gmail.com>",
+  "author": "Daniel Campos <d.ericeira@hotmail.com>",
   "license": "MIT",
   "repository": {
     "url": "http://",
